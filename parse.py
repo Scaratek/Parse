@@ -30,4 +30,4 @@ def parse(file: str):
 
 
 parse(file=infile)
-shutil.rmtree("/workspace/scarasite/parse/__pycache__")
+shutil.rmtree("/__pycache__")
