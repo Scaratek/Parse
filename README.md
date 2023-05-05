@@ -1,13 +1,14 @@
 # Parse
-Parsing engine made in Python 3 to customize python keywords to your liking
+Simple Parsing Engine Made in Python 3
 
-## How to setup
+## Installation
 ```bash
 $ git clone https://github.com/scaratek/parse
 $ cd parse
-$ python(3) parse.py {name of your file, the file extension can be anything}
 ```
 
-## Customize
-- To customize keywords copy and paste "{your keyword}": "{the oringinal python keyword}" Make sure to add a comma after each one if multiple
-- To run the file just typue file name after the parse.py file
+## Usage
+- in config.py there is a dictonary called "tokens"
+  - these are the parsing keywords, first one being input, second one being output
+
+- once you customize it run the command `python3 parse.py {file input name} {file output name}`
