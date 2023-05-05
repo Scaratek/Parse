@@ -1,12 +1,14 @@
 from tokenize import tokenize, untokenize
+import shutil
+import config
 import sys
 
-inter = sys.argv[1]
 
-def run_code(file: str):
-    keys = {
-       "your keyword": "python keyword" # then add a comma for multiple
-    }
+infile = sys.argv[1]
+outfile = sys.argv[2]
+
+def parse(file: str):
+    keys = config.tokens
 
     with open(file, 'rb') as src:
         tokens = []
@@ -19,10 +21,13 @@ def run_code(file: str):
                 t = (token.type, token.string)
 
             tokens.append(t)
+            
+        parsed = untokenize(tokens).decode('utf-8') 
 
-        code = untokenize(tokens).decode('utf-8') 
-        exec(code)
+    out = open(outfile, 'w')
+    out.write(parsed)
+    out.close()
 
-# Any file extension works just do python3 parse.py <file>
-if __name__ == '__main__':
-    run_code(file=inter)     
+
+parse(file=infile)
+shutil.rmtree("/workspace/scarasite/parse/__pycache__")
